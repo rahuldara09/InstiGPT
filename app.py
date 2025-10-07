@@ -51,7 +51,7 @@ def get_db_connection():
 @st.cache_resource
 def setup_knowledge_base_online():
     """Connects to Supabase pgvector and returns the RAG retriever."""
-    st.info("🌐 Connecting to online knowledge base...")
+    
     try:
         # Initialize Supabase Client using secrets
         supabase_client: Client = create_client(
@@ -70,7 +70,7 @@ def setup_knowledge_base_online():
             query_name="match_documents" 
         )
 
-        st.success("✅ Knowledge base loaded from Supabase pgvector.")
+        
         return vectorstore.as_retriever(search_kwargs={"k": 3})
     except Exception as e:
         st.error(f"🚨 Error setting up RAG knowledge base: {e}")
@@ -157,9 +157,9 @@ def save_message_to_db(session_id, query, answer):
 # 🖼️ 4. STREAMLIT UI LAYOUT
 # ====================================================================
 
-st.set_page_config(page_title="CampusGPT", page_icon="🎓", layout="centered")
-st.title("🎓 CampusGPT (IITB Anonymous Chat)")
-st.write("Ask questions about IIT Bombay (RAG powered by Gemini)")
+st.set_page_config(page_title="InstiGPT", page_icon="🎓", layout="centered")
+st.title("🎓 InstiGPT")
+st.write("Ask questions about IIT Bombay(Trained only on Rulebook)")
 
 # --- Initialize Session State ---
 if "current_session_id" not in st.session_state:
