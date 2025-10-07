@@ -179,7 +179,7 @@ with st.sidebar:
         create_new_anonymous_session()
     
     st.markdown("---")
-    st.subheader("History (All Users)")
+    st.subheader("Asked Questions")
 
     # Fetch all recent sessions/first messages
     try:
@@ -213,7 +213,7 @@ with st.sidebar:
     # Display sessions as selectable buttons/radio
     for session_id, first_query in sessions:
         # Truncate the query for display
-        display_query = f"Thread {session_id}: {first_query[:35]}..." if len(first_query) > 35 else f"Thread {session_id}: {first_query}"
+        display_query = f"{first_query[:35]}..." if len(first_query) > 35 else f"{first_query}"
         
         # Use a button to select the session
         if st.sidebar.button(
