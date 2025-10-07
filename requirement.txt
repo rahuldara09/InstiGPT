@@ -1,0 +1,9 @@
+streamlit
+google-genai
+langchain
+langchain-community
+langchain-huggingface
+supabase
+psycopg2-binary
+pypdf
+configparser

@@ -1,0 +1,10 @@
+.streamlit/secrets.toml
+.env                  # MUST be ignored (this is where the push failed)
+.DS_Store             # macOS desktop files
+__pycache__/
+*.pyc
+venv/                 # Virtual environment folder
+.venv/                # Virtual environment folder
+temp.pdf              # User uploaded file
+db/                   # Local Chroma DB folder (persistence is now on Supabase)
+*.log
