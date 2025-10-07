@@ -1,4 +1,3 @@
-
 .env                  # MUST be ignored (this is where the push failed)
 .DS_Store             # macOS desktop files
 __pycache__/
