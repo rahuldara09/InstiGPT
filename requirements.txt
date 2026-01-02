@@ -1,11 +1,9 @@
-streamlit
-google-genai
-langchain
+supabase==1.2.0
 langchain-community
+langchain-core
 langchain-huggingface
-supabase
-psycopg2-binary
-pypdf
-configparser
-google-generativeai 
 sentence-transformers
+pgvector
+psycopg2-binary
+google-generativeai
+streamlit
