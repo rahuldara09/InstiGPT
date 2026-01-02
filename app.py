@@ -8,9 +8,6 @@ from supabase.client import create_client, Client
 # --- LangChain/RAG Imports ---
 from langchain_community.vectorstores import SupabaseVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings 
-# ====================================================================
-# 🔑 1. CONFIGURATION & DATABASE FUNCTIONS
-# ====================================================================
 
 # 🔑 Configure Gemini API
 try:
@@ -153,10 +150,6 @@ def save_message_to_db(session_id, query, answer):
     except Exception as e:
         st.error(f"Could not save chat message to database: {e}")
 
-# ====================================================================
-# 🖼️ 4. STREAMLIT UI LAYOUT
-# ====================================================================
-
 st.set_page_config(page_title="InstiGPT", page_icon="🎓", layout="centered")
 st.title("🎓 InstiGPT")
 st.write("Ask questions about IIT Bombay(Trained only on Rulebook)")
@@ -255,7 +248,7 @@ if query := st.chat_input(placeholder_text, disabled=query_limit_reached):
         context = ""
         if retriever:
             # Query pgvector (online)
-            results = retriever.get_relevant_documents(query)
+            results = retriever.invoke(query) 
             context = "\n\n".join([doc.page_content for doc in results])
 
         prompt = (
